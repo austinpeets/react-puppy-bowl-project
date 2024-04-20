@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react'
 import CreatePlayer from './components/CreatePlayerForm'
 import Details from './components/Details'
-import SearchBar from './components/SearchBar'
+import Home from './components/Home'
 import { Routes, Route } from "react-router-dom"
 import { Link } from "react-router-dom"
-
 import './App.css'
 
 function App() {
@@ -29,16 +28,16 @@ function App() {
     <>
       <div id="container">
         <div id="navbar">
-          <Link to={"/createplayer"}>Create Player</Link>
+          <Link to={"/home"}>Home</Link>
           <Link to={"/details"}>Details</Link>
-          <Link to={"/searchbar"}>Search</Link>
+          <Link to={"/createplayerform"}>Create Player</Link>
         </div>
 
         <div id="main-section">
           <Routes>
-            <Route path="/CreatePlayer" element={<CreatePlayer />} />
-            <Route path="/Details" element={<Details />} />
-            <Route path="/SearchBar" element={<SearchBar />} />
+            <Route path="/home" element={<Home />}></Route>
+            <Route path="/details" element={<Details />}></Route>
+            <Route path="/createplayerform" element={<CreatePlayer />}></Route>
           </Routes>
         </div>
       </div>
