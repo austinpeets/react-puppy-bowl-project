@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react'
 import { pullPlayers } from '../API/index'
 import PlayerCard from './PlayerCard'
 import SearchBar from './SearchBar'
+import CreatePlayerForm from './CreatePlayerForm'
 
 export default function Home() {
 const [term, setTerm] = useState('')
