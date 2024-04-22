@@ -23,7 +23,6 @@ export default function Details() {
       <div className="Details">
         <>
        <h1>Details</h1>
-      
           {player && <PlayerCard player={ player } isSingle/>}
         </> 
       </div>
