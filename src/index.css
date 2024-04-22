@@ -73,5 +73,15 @@ button:focus-visible {
 #navbar {
   width: 100vh;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 767px) {
+  
+  #navbar{
+    display: flex;
+    flex-direction: column;
+    
+
+  }
 }
