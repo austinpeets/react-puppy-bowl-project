@@ -19,8 +19,6 @@ function PlayerCard({ player, isSingle }) {
         {isSingle ? <button onClick={handleClick}>Go Back</button> : <button onClick={handleClick}>See Details</button>}
         <h2>{player.breed}</h2>
         <h2>{player.status}</h2>
-       
-        
         </>
     )
 }

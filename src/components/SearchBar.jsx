@@ -1,9 +1,6 @@
 import {useState} from "react"
 
 export default function SearchBar({term, setTerm}) {
-   
-    
-
     return (
         <form >
             <label id='search'>Search</label>

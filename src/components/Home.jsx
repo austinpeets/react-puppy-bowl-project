@@ -2,7 +2,6 @@ import {useState, useEffect} from 'react'
 import { pullPlayers } from '../API/index'
 import PlayerCard from './PlayerCard'
 import SearchBar from './SearchBar'
-import CreatePlayerForm from './CreatePlayerForm'
 
 export default function Home() {
 const [term, setTerm] = useState('')
@@ -15,7 +14,9 @@ useEffect(() => {
    }
    fetchAllPlayers()
 }, [])
-  
+
+
+
 const filterPlayers = players.filter(player => player.name.toLowerCase().includes(term.toLowerCase()))
 
   return (
@@ -25,9 +26,11 @@ const filterPlayers = players.filter(player => player.name.toLowerCase().include
         <ul>
           {filterPlayers.map(player => {
             return (
-              <PlayerCard key={player.id} player={player}/>
+              <PlayerCard key={player.id} player={player} />
             )
-          })}
+          })
+          }
+         
         </ul>
       </div>
     );

@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-export default function CreatePlayer() {
+export default function CreatePlayerForm() {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState("bench");
   const [image, setImage] = useState("");
   const [error, setError] = useState(null);
 
@@ -13,7 +13,7 @@ export default function CreatePlayer() {
 
     try {
       const response = await fetch(
-        "https://fsa-puppy-bowl.herokuapp.com/api/2401-ftb-mt-web-pt/players/",
+        'https://fsa-puppy-bowl.herokuapp.com/api/2401-ftb-mt-web-pt/players/',
         {
           method: "POST",
           headers: {
@@ -25,10 +25,9 @@ export default function CreatePlayer() {
       );
 
       const result = await response.json();
-      return result
+      setError(result)
     } catch (error) {
-      console.error(error)
-      setError(error.message);
+      console.error("this is an error", error)
     }
   }
 
@@ -59,7 +58,10 @@ export default function CreatePlayer() {
           <br />
           <label>
             Status (choose one):{" "}
-            <select value={status} onChange={(e) => setStatus(e.target.value)}>
+            <select value={status} onChange={(e) => {
+              console.log(e.target.value);
+              setStatus(e.target.value)}}>
+              
               <option value="bench">Bench</option>
               <option value="field">Field</option>
             </select>
@@ -72,7 +74,9 @@ export default function CreatePlayer() {
               name="imageUrl"
               className="image"
               value={image}
-              onChange={(e) => setImage(e.target.value)}
+              onChange={(e) => {
+                console.log(e.target.value)
+                setImage(e.target.value)}}
               placeholder='Enter image URL'
             />< br /> 
             {image && (
