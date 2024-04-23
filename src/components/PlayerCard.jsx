@@ -12,7 +12,6 @@ function PlayerCard({ player, isSingle }) {
     }
 }
 
-    console.log(isSingle)
     return (
         <>
         <img src={player.imageUrl}></img>

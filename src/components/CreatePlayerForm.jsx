@@ -3,7 +3,7 @@ import { useState } from "react";
 export default function CreatePlayer() {
   const [name, setName] = useState("");
   const [breed, setBreed] = useState("");
-  const [status, setStatus] = useState("Bench");
+  const [status, setStatus] = useState("");
   const [image, setImage] = useState("");
   const [error, setError] = useState(null);
 
@@ -25,7 +25,7 @@ export default function CreatePlayer() {
       );
 
       const result = await response.json();
-      console.log(result);
+      return result
     } catch (error) {
       console.error(error)
       setError(error.message);
@@ -68,19 +68,22 @@ export default function CreatePlayer() {
           <label>
             Image URL:{" "}
             <input
-              name="url"
+              type="url"
+              name="imageUrl"
               className="image"
               value={image}
               onChange={(e) => setImage(e.target.value)}
               placeholder='Enter image URL'
-            />
+            />< br /> 
+            {image && (
+              <img src={image} alt="Uploaded image" style={{ maxWidth: "100%"}} />
+            )}
           </label>
           <br />
           <button type='submit'>Submit</button>
           <p>{name}</p>
           <p>{breed}</p>
           <p>{status}</p>
-          <p>{image}</p>
         </form>
       </div>
     </>
